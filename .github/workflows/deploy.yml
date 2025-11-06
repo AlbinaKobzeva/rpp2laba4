@@ -16,13 +16,13 @@ jobs:
 
     - name: Создать папку с версией релиза
       run: |
-        mkdir -p "v${{ github.event.release.tag_name }}"
-        cp -r *.html ru/ en/ "v${{ github.event.release.tag_name }}/"
-        ls -la "v${{ github.event.release.tag_name }}/"
+        mkdir -p "${{ github.event.release.tag_name }}"
+        cp -r *.html ru/ en/ "${{ github.event.release.tag_name }}/"
+        ls -la "${{ github.event.release.tag_name }}/"
 
     - name: Опубликовать сайт
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./v${{ github.event.release.tag_name }}
-        destination_dir: v${{ github.event.release.tag_name }}
+        publish_dir: ./${{ github.event.release.tag_name }}
+        destination_dir: ${{ github.event.release.tag_name }}

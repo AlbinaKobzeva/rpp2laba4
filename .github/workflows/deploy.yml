@@ -18,7 +18,6 @@ jobs:
       run: |
         mkdir -p "${{ github.event.release.tag_name }}"
         cp -r *.html ru/ en/ "${{ github.event.release.tag_name }}/"
-        ls -la "${{ github.event.release.tag_name }}/"
 
     - name: Опубликовать сайт
       uses: peaceiris/actions-gh-pages@v4
